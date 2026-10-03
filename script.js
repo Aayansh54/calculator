@@ -6,12 +6,19 @@ const button = document.querySelectorAll(".buttons button")
 console.log(button)
 
 function press(value){
-    if(value == 'C'){
+    if(value === 'C'){
         screen.value = "";
-    }else if(value == 'DEL'){
-        
+    } else if(value === 'DEL'){
+        screen.value = screen.value.slice(0, -1);
+    } else if(value === '='){
+        try {
+            screen.value = eval(screen.value);
+        } catch {
+            screen.value = "Error";
+        }
+    } else {
+        screen.value += value;
     }
-    screen.value += value;
 }
 n = button.length;
 
